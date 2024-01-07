@@ -29,7 +29,7 @@ import (
 
 var _PAGE int64 = int64(os.Getpagesize())
 
-func xTestRead(t *testing.T) {
+func TestRead(t *testing.T) {
 	assert := newAsserter(t)
 
 	var sz int64 = 3*_PAGE + (_PAGE / 3)
@@ -92,7 +92,6 @@ func TestWrite(t *testing.T) {
 	for i := range pages {
 		pg := &pages[i]
 		n := len(pg.buf)
-		fmt.Printf("Pg %2d: off %d, len %d\n", i, pg.off, len(pg.buf))
 		mm := mapped[pg.off:]
 
 		m := copy(mm, pg.buf)

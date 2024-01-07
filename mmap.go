@@ -17,7 +17,6 @@ package mmap
 import (
 	"fmt"
 	"os"
-	"strings"
 )
 
 // Prot describes the protections for a mapping
@@ -164,40 +163,3 @@ func Reader(fd *os.File, fp func(buf []byte) error) (int64, error) {
 	return z, nil
 }
 
-/*
-func (p Prot) String() string {
-	var b strings.Builder
-	if p&PROT_READ != 0 {
-		b.WriteString("|R")
-	}
-	if p&PROT_READ != 0 {
-		b.WriteString("|W")
-	}
-	if p&PROT_EXEC != 0 {
-		b.WriteString("|X")
-	}
-	s := b.String()
-	if len(s) > 0 {
-		s = s[1:]
-	}
-	return s
-}
-
-func (f Flag) String() string {
-	var b strings.Builder
-	if f&F_COW != 0 {
-		b.WriteString("|C")
-	}
-	if f&F_HUGETLB != 0 {
-		b.WriteString("|H")
-	}
-	if f&F_READAHEAD != 0 {
-		b.WriteString("|RA")
-	}
-	s := b.String()
-	if len(s) > 0 {
-		s = s[1:]
-	}
-	return s
-}
-*/
