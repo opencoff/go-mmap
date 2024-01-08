@@ -71,10 +71,10 @@ func convert(prot Prot, flags Flag) (mprot, mflag int) {
 		mprot |= unix.PROT_EXEC
 	}
 	if flags&F_HUGETLB != 0 {
-		mflag |= unix.MAP_HUGETLB
+		mflag |= _MAP_HUGETLB
 	}
 	if flags&F_READAHEAD != 0 {
-		mflag |= unix.MAP_POPULATE
+		mflag |= _MAP_POPULATE
 	}
 	return
 }

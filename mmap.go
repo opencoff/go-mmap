@@ -162,4 +162,3 @@ func Reader(fd *os.File, fp func(buf []byte) error) (int64, error) {
 	}
 	return z, nil
 }
-
