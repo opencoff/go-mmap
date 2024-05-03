@@ -72,6 +72,10 @@ func (m *Mmap) Map(sz, off int64, prot Prot, flags Flag) (*Mapping, error) {
 		return nil, fmt.Errorf("mmap %d at %d: %w", sz, off, err)
 	}
 
+	if !st.Mode().IsRegular() {
+		return nil, fmt.Errorf("mmap %d at %d: not a regular file", sz, off)
+	}
+
 	fsz := st.Size()
 	if fsz == 0 {
 		return nil, fmt.Errorf("mmap %d at %d: empty file", sz, off)
