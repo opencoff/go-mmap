@@ -143,11 +143,7 @@ func Reader(fd *os.File, fp func(buf []byte) error) (int64, error) {
 	m := New(fd)
 	fsz = st.Size()
 	for fsz > 0 {
-		sz := fsz
-		if sz > _MaxMmapSize {
-			sz = _MaxMmapSize
-		}
-
+		sz := min(fsz, _MaxMmapSize)
 		p, err := m.mmap(sz, off, PROT_READ, F_READAHEAD)
 		if err != nil {
 			return 0, err
