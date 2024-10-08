@@ -15,4 +15,4 @@
 
 package mmap
 
-const _MaxMmapSize int64 = 3 * 1024 * 1048576
+const _MaxMmapSize int64 = 1024 * 1024 * 1048576

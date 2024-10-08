@@ -70,6 +70,7 @@ func convert(prot Prot, flags Flag) (mprot, mflag int) {
 	if prot&PROT_EXEC != 0 {
 		mprot |= unix.PROT_EXEC
 	}
+
 	if flags&F_HUGETLB != 0 {
 		mflag |= _MAP_HUGETLB
 	}

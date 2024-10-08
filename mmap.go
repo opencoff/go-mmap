@@ -37,6 +37,11 @@ const (
 	F_READAHEAD
 )
 
+const (
+	// This represents the largest size of a memory mapped file on this system
+	MaxMappingSize int64 = _MaxMmapSize
+)
+
 // Mmap describes mappings for a file backed object
 type Mmap struct {
 	fd *os.File
