@@ -1,5 +1,5 @@
 module github.com/opencoff/go-mmap
 
-go 1.24.0
+go 1.24.3
 
-require golang.org/x/sys v0.31.0
+require golang.org/x/sys v0.33.0
